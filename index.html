@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .inline {
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="title">
+        <div class="inline">
+        <img src="chungnam.png" class="inline" style="width:50%">
+        </div>
+        <div class="inline" style="font-size:30pt;">여기어뗘?</div>
+    </div>
+    <hr>
+    <div class="inline" style="float:left">
+        <form class="inline">
+            <input type="text" placeholer="검색어 입력하세요">
+            <button id="searchButton" type="submit">🍳</button>
+        </form>
+        <div style="border:1px solid black; height:300px">리스트임</div>
+    </div>
+    <div id="map" style="width:500px; height:300px" class="inline"></div>
+    </div>
+    <script type="text/javascript"
+        src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c397e3a203979f124b4e8ecf8eb8fc77"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
