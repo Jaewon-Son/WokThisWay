@@ -8,29 +8,85 @@
         .inline {
             display: inline-block;
         }
+
+        .restaurant {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .restaurant img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .restaurant h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .restaurant p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .restaurant .ratings {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .restaurant .ratings img {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .restaurant .ratings span {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #restaurantContainer {
+            width: 30%;
+            height: 500px;
+            overflow-y: scroll;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-sizing: border-box;
+            float: left;
+        }
     </style>
+    <script src="data.js"></script>
 </head>
 
 <body>
     <div id="title">
         <div class="inline">
-        <img src="chungnam.png" class="inline" style="width:50%">
+            <img src="chungnam.png" class="inline" style="width:50%">
         </div>
         <div class="inline" style="font-size:30pt;">여기어뗘?</div>
     </div>
     <hr>
-    <div class="inline" style="float:left">
-        <form class="inline">
-            <input type="text" placeholer="검색어 입력하세요">
-            <button id="searchButton" type="submit">🍳</button>
-        </form>
-        <div style="border:1px solid black; height:300px">리스트임</div>
-    </div>
-    <div id="map" style="width:500px; height:300px" class="inline"></div>
-    </div>
+    <div id="restaurantContainer" style="width: 300px;"></div>
+
+    <div id="map" style="width:500px; height:500px" class="inline"></div>
     <script type="text/javascript"
         src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c397e3a203979f124b4e8ecf8eb8fc77"></script>
+    
+    <!-- <script src="getdata.js"></script> -->
+    <script src="list.js" defer></script>
     <script src="app.js"></script>
+    
+    
+
+
+
 </body>
 
 </html>

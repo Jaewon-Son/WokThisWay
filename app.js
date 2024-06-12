@@ -4,6 +4,8 @@ mapOption = {
   level: 12,
 };
 var map = new kakao.maps.Map(mapContainer, mapOption);
+// 지도의 최대 레벨을 설정하여 level 12를 초과하지 못하도록 합니다.
+map.setMaxLevel(12);
 
 var cheonan = [
   new kakao.maps.LatLng(36.9375, 127.0745),
@@ -1304,202 +1306,100 @@ overlayNonsan.setMap(map);
 overlayGeumsan.setMap(map);
 
 // 다각형에 마우스오버 이벤트가 발생했을 때 변경할 채우기 옵션입니다
-var overCheonan = {
+var nowOver = {
   fillColor: "#104E8B", // 채우기 색깔입니다
   fillOpacity: 1, // 채우기 불투명도 입니다
 };
-var overAsan = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overDangjin = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overYesan = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overSeosan = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overTaean = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overGongju = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overHongsung = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overCheongyang = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overGyaeryong = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overBuyeo = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overBoryeong = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overSeocheon = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overNonsan = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
-var overGeumsan = {
-  fillColor: "#104E8B",
-  fillOpacity: 1,
-};
 
 // 다각형에 마우스아웃 이벤트가 발생했을 때 변경할 채우기 옵션입니다
-var outCheonan = {
+var nowOut = {
   fillColor: "#1E90FF", // 채우기 색깔입니다
   fillOpacity: 0.9, // 채우기 불투명도 입니다
 };
-var outAsan = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outDangjin = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outYesan = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outSeosan = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outTaean = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outGongju = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outHongsung = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outCheongyang = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outGyaeryong = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outBuyeo = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outBoryeong = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outSeocheon = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outNonsan = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
-var outGeumsan = {
-  fillColor: "#1E90FF",
-  fillOpacity: 0.9,
-};
+
+var clickCheonan = {
+  fillColor: "#000000",
+  fillOpacity: 0,
+}
 
 
 kakao.maps.event.addListener(polygonCheonan, "mouseover", function () {
-  polygonCheonan.setOptions(overCheonan);
+  polygonCheonan.setOptions(nowOver);
   document.getElementById('cheonanLabel').style.fontWeight = 'bold';
 });
 
+kakao.maps.event.addListener(polygonCheonan, "click", function() {
+  polygonCheonan.setOptions(clickCheonan);
+  console.log("clicked");
+})
+
 kakao.maps.event.addListener(polygonAsan, "mouseover", function () {
-  polygonAsan.setOptions(overAsan);
+  polygonAsan.setOptions(nowOver);
   document.getElementById('asanLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonDangjin, "mouseover", function () {
-  polygonDangjin.setOptions(overDangjin);
+  polygonDangjin.setOptions(nowOver);
   document.getElementById('dangjinLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonYesan, "mouseover", function () {
-  polygonYesan.setOptions(overYesan);
+  polygonYesan.setOptions(nowOver);
   document.getElementById('yesanLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonSeosan, "mouseover", function () {
-  polygonSeosan.setOptions(overSeosan);
+  polygonSeosan.setOptions(nowOver);
   document.getElementById('seosanLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonTaean, "mouseover", function () {
-  polygonTaean.setOptions(overTaean);
+  polygonTaean.setOptions(nowOver);
   document.getElementById('taeanLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonGongju, "mouseover", function () {
-  polygonGongju.setOptions(overGongju);
+  polygonGongju.setOptions(nowOver);
   document.getElementById('gongjuLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonHongsung, "mouseover", function () {
-  polygonHongsung.setOptions(overHongsung);
+  polygonHongsung.setOptions(nowOver);
   document.getElementById('hongsungLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonCheongyang, "mouseover", function () {
-  polygonCheongyang.setOptions(overCheongyang);
+  polygonCheongyang.setOptions(nowOver);
   document.getElementById('cheongyangLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonGyaeryong, "mouseover", function () {
-  polygonGyaeryong.setOptions(overGyaeryong);
+  polygonGyaeryong.setOptions(nowOver);
   document.getElementById('gyaeryongLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonBuyeo, "mouseover", function () {
-  polygonBuyeo.setOptions(overBuyeo);
+  polygonBuyeo.setOptions(nowOver);
   document.getElementById('buyeoLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonBoryeong, "mouseover", function () {
-  polygonBoryeong.setOptions(overBoryeong);
+  polygonBoryeong.setOptions(nowOver);
   document.getElementById('boryeongLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonSeocheon, "mouseover", function () {
-  polygonSeocheon.setOptions(overSeocheon);
+  polygonSeocheon.setOptions(nowOver);
   document.getElementById('seocheonLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonNonsan, "mouseover", function () {
-  polygonNonsan.setOptions(overNonsan);
+  polygonNonsan.setOptions(nowOver);
   document.getElementById('nonsanLabel').style.fontWeight = 'bold';
 });
 
 kakao.maps.event.addListener(polygonGeumsan, "mouseover", function () {
-  polygonGeumsan.setOptions(overGeumsan);
+  polygonGeumsan.setOptions(nowOver);
   document.getElementById('geumsanLabel').style.fontWeight = 'bold';
 });
 
@@ -1508,86 +1408,86 @@ kakao.maps.event.addListener(polygonGeumsan, "mouseover", function () {
 //마우스 아웃 이벤트
 
 kakao.maps.event.addListener(polygonCheonan, "mouseout", function () {
-  polygonCheonan.setOptions(outCheonan);
+  polygonCheonan.setOptions(nowOut);
   document.getElementById('cheonanLabel').style.fontWeight = 'normal'; // 글자 스타일을 원래 상태로 변경
 });
 
 kakao.maps.event.addListener(polygonAsan, "mouseout", function () {
-  polygonAsan.setOptions(outAsan);
+  polygonAsan.setOptions(nowOut);
   document.getElementById('asanLabel').style.fontWeight = 'normal';
 });
 
 
 kakao.maps.event.addListener(polygonDangjin, "mouseout", function () {
-  polygonDangjin.setOptions(outDangjin);
+  polygonDangjin.setOptions(nowOut);
   document.getElementById('dangjinLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonYesan, "mouseout", function () {
-  polygonYesan.setOptions(outYesan);
+  polygonYesan.setOptions(nowOut);
   document.getElementById('yesanLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonSeosan, "mouseout", function () {
-  polygonSeosan.setOptions(outSeosan);
+  polygonSeosan.setOptions(nowOut);
   document.getElementById('seosanLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonTaean, "mouseout", function () {
-  polygonTaean.setOptions(outTaean);
+  polygonTaean.setOptions(nowOut);
   document.getElementById('taeanLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonGongju, "mouseout", function () {
-  polygonGongju.setOptions(outGongju);
+  polygonGongju.setOptions(nowOut);
   document.getElementById('gongjuLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonHongsung, "mouseout", function () {
-  polygonHongsung.setOptions(outHongsung);
+  polygonHongsung.setOptions(nowOut);
   document.getElementById('hongsungLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonCheongyang, "mouseout", function () {
-  polygonCheongyang.setOptions(outCheongyang);
+  polygonCheongyang.setOptions(nowOut);
   document.getElementById('cheongyangLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonGyaeryong, "mouseout", function () {
-  polygonGyaeryong.setOptions(outGyaeryong);
+  polygonGyaeryong.setOptions(nowOut);
   document.getElementById('gyaeryongLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonBuyeo, "mouseout", function () {
-  polygonBuyeo.setOptions(outBuyeo);
+  polygonBuyeo.setOptions(nowOut);
   document.getElementById('buyeoLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonBoryeong, "mouseout", function () {
-  polygonBoryeong.setOptions(outBoryeong);
+  polygonBoryeong.setOptions(nowOut);
   document.getElementById('boryeongLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonSeocheon, "mouseout", function () {
-  polygonSeocheon.setOptions(outSeocheon);
+  polygonSeocheon.setOptions(nowOut);
   document.getElementById('seocheonLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonNonsan, "mouseout", function () {
-  polygonNonsan.setOptions(outNonsan);
+  polygonNonsan.setOptions(nowOut);
   document.getElementById('nonsanLabel').style.fontWeight = 'normal';
 });
 
 kakao.maps.event.addListener(polygonGeumsan, "mouseout", function () {
-  polygonGeumsan.setOptions(outGeumsan);
+  polygonGeumsan.setOptions(nowOut);
   document.getElementById('geumsanLabel').style.fontWeight = 'normal';
 });
 
 // 다각형에 마우스다운 이벤트를 등록합니다
-var downCount = 0;
-kakao.maps.event.addListener(polygonCheonan, "mousedown", function () {
-  console.log(event);
-  var resultDiv = document.getElementById("result");
-  resultDiv.innerHTML =
-    "다각형에 mousedown 이벤트가 발생했습니다!" + ++downCount;
-});
+// var downCount = 0;
+// kakao.maps.event.addListener(polygonCheonan, "mousedown", function () {
+//   console.log(event);
+//   var resultDiv = document.getElementById("result");
+//   resultDiv.innerHTML =
+//     "다각형에 mousedown 이벤트가 발생했습니다!" + ++downCount;
+// });
