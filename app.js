@@ -1,11 +1,11 @@
 var mapContainer = document.getElementById("map");
 mapOption = {
   center: new kakao.maps.LatLng(36.489567, 126.942152),
-  level: 12,
+  level: 11,
 };
 var map = new kakao.maps.Map(mapContainer, mapOption);
 // 지도의 최대 레벨을 설정하여 level 12를 초과하지 못하도록 합니다.
-map.setMaxLevel(12);
+map.setMaxLevel(11);
 
 var cheonan = [
   new kakao.maps.LatLng(36.9375, 127.0745),
